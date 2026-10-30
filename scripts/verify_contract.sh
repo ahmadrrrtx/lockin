@@ -26,7 +26,10 @@ fi
 
 echo "== 2. No legacy identity strings in sources/resources =="
 LEGACY_PATTERN='curbox|neth\.iecal|digipauwse|curbox-api|curbox\.app'
-if grep -riE "$LEGACY_PATTERN" app/src build.gradle.kts settings.gradle.kts README.md docs branding 2>/dev/null | grep -v 'scripts/verify_contract.sh'; then
+# Attribution lines that defer to NOTICE or link the upstream repository are
+# legitimate GPL compliance, not branding leaks — exempt exactly those lines.
+if grep -riE "$LEGACY_PATTERN" app/src build.gradle.kts settings.gradle.kts README.md docs branding 2>/dev/null \
+     | grep -v 'scripts/verify_contract.sh' | grep -vE '\[NOTICE\]|github\.com/curbox-app'; then
   echo "FAIL: legacy references found"; FAIL=1
 else
   echo "OK: no legacy identity strings"

@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use Lockin, please cite it as below. It helps the project get credit."
+title: "Lockin: strict focus commitment for Android"
+type: software
+authors:
+  - name: "ahmadrrrtx"
+repository-code: "https://github.com/ahmadrrrtx/lockin"
+url: "https://github.com/ahmadrrrtx/lockin"
+license: GPL-3.0-or-later
+version: 1.1.0
+date-released: 2026-10-30
+keywords:
+  - android
+  - focus
+  - productivity
+  - accessibility
+  - privacy
+  - offline-first
+  - app-blocking
+abstract: >-
+  Lockin is an open-source, offline-first Android application for strict
+  focus commitment. The user selects installed applications and a duration;
+  once a session is committed, the state machine enforces ACTIVE until the
+  deadline with no cancellation, pause, or early-unlock surface on any
+  notification, broadcast, or interface. Blocking is implemented with a
+  minimized accessibility service, sessions survive process death and reboot,
+  and the app declares no INTERNET permission.
