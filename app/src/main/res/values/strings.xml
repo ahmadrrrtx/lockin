@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Note: the release/debug app_name resource is injected by Gradle build types. -->
+
+    <!-- Accessibility / services -->
+    <string name="accessibility_service_label">Lockin Focus Blocker</string>
+    <string name="accessibility_service_description">Lockin uses this service to detect when a locked app is opened during an active focus session and immediately returns you to Lockin\'s block screen. It only observes which window is in the foreground — it never reads, stores, or inspects the content of your screens.</string>
+    <string name="device_admin_description">Allows Lockin to add friction when the app is uninstalled while a focus commitment is active.</string>
+
+    <!-- Notifications -->
+    <string name="session_channel_name">Focus sessions</string>
+    <string name="session_channel_description">Countdown and status for the active focus session.</string>
+    <string name="protection_channel_name">Protection status</string>
+    <string name="protection_channel_description">Warnings when a protection is degraded or a permission was revoked.</string>
+    <string name="done_channel_name">Session results</string>
+    <string name="done_channel_description">Confirmation when a focus session completes.</string>
+
+    <string name="notif_session_title">Focus session in progress</string>
+    <string name="notif_session_text">%1$s remaining · %2$d apps locked</string>
+    <string name="notif_protection_low_title">Protection needs attention</string>
+    <string name="notif_protection_low_text">The focus blocker accessibility service is turned off while a session is active.</string>
+    <string name="notif_completed_title">Session complete</string>
+    <string name="notif_completed_text">You stayed locked in for %1$s. %2$d unlock attempts were blocked.</string>
+    <string name="notif_schedule_started_title">Scheduled session started</string>
+    <string name="notif_schedule_started_text">%1$s is now locked for %2$s.</string>
+
+    <!-- Block screen -->
+    <string name="block_title">Locked until your session ends</string>
+    <string name="block_opened_label">%1$s is locked</string>
+    <string name="block_remaining_label">Time remaining</string>
+    <string name="block_apps_label">%1$d selected apps are locked right now</string>
+    <string name="block_no_early_unlock">There is no early unlock. Your commitment ends at the time you confirmed.</string>
+    <string name="block_view_session">View session</string>
+    <string name="block_open_lockin">Open Lockin</string>
+
+    <!-- Session creation -->
+    <string name="home_title">Lockin</string>
+    <string name="home_tagline">Choose your focus. Commit to it.</string>
+    <string name="home_start_focus">Start a focus session</string>
+    <string name="home_active_card_title">Session active</string>
+    <string name="home_active_card_open">View active session</string>
+    <string name="home_no_session_title">No active session</string>
+    <string name="home_no_session_body">Pick the apps you want locked, choose how long, and commit. Once you start, the timer runs to the end.</string>
+    <string name="home_stat_focus_today">Focused today</string>
+    <string name="home_stat_sessions">Sessions completed</string>
+    <string name="home_stat_blocked">Attempts blocked</string>
+
+    <string name="select_title">Select applications</string>
+    <string name="select_search_hint">Search apps</string>
+    <string name="select_count_one">%1$d app selected</string>
+    <string name="select_count_many">%1$d apps selected</string>
+    <string name="select_empty_query">No installed apps match your search.</string>
+    <string name="select_next">Continue</string>
+    <string name="select_protected_note">Emergency calling, the launcher, System UI and other essential system functions can never be blocked.</string>
+    <string name="select_cannot_block_this">Lockin itself and essential Android functions cannot be blocked.</string>
+    <string name="select_unlocked_hint">Add at least one app to lock.</string>
+
+    <string name="duration_title">Choose duration</string>
+    <string name="duration_custom">Custom</string>
+    <string name="duration_max_note">Maximum session length: %1$s.</string>
+    <string name="duration_ends_at">Your session would end at %1$s.</string>
+    <string name="duration_hours_unit">h</string>
+    <string name="duration_minutes_unit">min</string>
+
+    <string name="confirm_title">Confirm your commitment</string>
+    <string name="confirm_apps_header">Apps that will be locked</string>
+    <string name="confirm_duration_header">Duration</string>
+    <string name="confirm_ends_header">Expected end</string>
+    <string name="confirm_protection_header">Protection status</string>
+    <string name="confirm_warning">Once you start, this session cannot be cancelled, paused, shortened, or ended early from inside Lockin. Selected apps stay locked until the timer reaches zero — even if you restart your phone.</string>
+    <string name="confirm_commitment_label">I understand and I commit to this session.</string>
+    <string name="confirm_commitment_hint">Optional personal statement</string>
+    <string name="confirm_commitment_hint_label">Why are you locking in? (optional)</string>
+    <string name="confirm_start">START</string>
+    <string name="confirm_back">Back</string>
+
+    <string name="active_title">Session active</string>
+    <string name="active_remaining">Remaining</string>
+    <string name="active_end_time">Ends at %1$s</string>
+    <string name="active_locked_apps">%1$d apps locked</string>
+    <string name="active_no_exit_note">This screen has no cancel, pause or early-unlock control. The session ends only when the timer does.</string>
+    <string name="active_integrity_warning">Time verification is degraded on this device; your original duration still applies. See Protection center for details.</string>
+    <string name="active_add_apps">Add more apps to this session</string>
+    <string name="active_add_apps_note">Adding apps is allowed during a session — removing them is not.</string>
+
+    <string name="completed_toast">Session complete. Nice work.</string>
+
+    <!-- History -->
+    <string name="history_title">History</string>
+    <string name="history_empty_title">No sessions yet</string>
+    <string name="history_empty_body">Completed focus sessions and blocked unlock attempts will appear here.</string>
+    <string name="history_row_duration">%1$s focus</string>
+    <string name="history_row_range">%1$s – %2$s</string>
+    <string name="history_row_attempts">%1$d attempts blocked</string>
+    <string name="history_row_apps">%1$d apps</string>
+    <string name="history_stat_total">Total focused</string>
+    <string name="history_stat_attempts">Attempts blocked</string>
+
+    <!-- Schedules -->
+    <string name="schedules_title">Schedules</string>
+    <string name="schedules_empty_title">No schedules</string>
+    <string name="schedules_empty_body">Recurring plans start a strict session automatically at the days and times you choose.</string>
+    <string name="schedules_add">Add schedule</string>
+    <string name="schedule_dialog_title">New schedule</string>
+    <string name="schedule_label_hint">Label (e.g. Morning study)</string>
+    <string name="schedule_time_label">Start time</string>
+    <string name="schedule_duration_label">Duration</string>
+    <string name="schedule_apps_label">Apps to lock</string>
+    <string name="schedule_repeats_label">Repeats on</string>
+    <string name="schedule_save">Save</string>
+    <string name="schedule_delete">Delete</string>
+    <string name="schedule_needs_apps">Choose at least one app for this schedule.</string>
+    <string name="schedule_enabled">Enabled</string>
+    <string name="schedule_next_run">Next: %1$s</string>
+    <string name="day_mon">Mon</string>
+    <string name="day_tue">Tue</string>
+    <string name="day_wed">Wed</string>
+    <string name="day_thu">Thu</string>
+    <string name="day_fri">Fri</string>
+    <string name="day_sat">Sat</string>
+    <string name="day_sun">Sun</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_section_permissions">Permissions</string>
+    <string name="settings_section_appearance">Appearance</string>
+    <string name="settings_section_data">Data &amp; privacy</string>
+    <string name="settings_section_about">About</string>
+    <string name="settings_accessibility">Focus blocker service</string>
+    <string name="settings_accessibility_sub">Required to enforce locked apps</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_notifications_sub">Session countdown and protection warnings</string>
+    <string name="settings_battery">Battery optimization exemption</string>
+    <string name="settings_battery_sub">Keeps the countdown reliable when the screen is off</string>
+    <string name="settings_device_admin">Device admin protection</string>
+    <string name="settings_device_admin_sub">Adds friction to uninstalling Lockin</string>
+    <string name="settings_protection_center">Protection center</string>
+    <string name="settings_protection_center_sub">Exact status of every protection</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_system">Follow system</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_dark">Dark</string>
+    <string name="settings_privacy_policy">Privacy policy</string>
+    <string name="settings_about_lockin">About Lockin</string>
+    <string name="settings_version">Version %1$s</string>
+    <string name="settings_clear_data">Delete all local data</string>
+    <string name="settings_clear_data_confirm">This permanently removes every session, schedule and statistic stored on this device. There is no cloud copy.</string>
+    <string name="settings_clear_data_yes">Delete</string>
+    <string name="settings_clear_data_cancel">Cancel</string>
+
+    <!-- Protection center -->
+    <string name="protection_title">Protection center</string>
+    <string name="protection_intro">Lockin shows exactly what is enforced right now and what Android still allows. Nothing here is exaggerated.</string>
+    <string name="protection_state_on">Enforced</string>
+    <string name="protection_state_off">Off</string>
+    <string name="protection_state_degraded">Degraded</string>
+    <string name="protection_state_unavailable">Not available</string>
+    <string name="protection_blocker_row">Focus blocker service</string>
+    <string name="protection_blocker_desc">Detects locked apps in the foreground and shows the block screen.</string>
+    <string name="protection_admin_row">Device admin</string>
+    <string name="protection_admin_desc">Must be deactivated before Lockin can be uninstalled on most devices.</string>
+    <string name="protection_owner_row">Enhanced uninstall blocking</string>
+    <string name="protection_owner_desc">Available only if this device was provisioned with Lockin as a device owner. Standard personal phones cannot grant this without enterprise provisioning or factory-level setup, so Lockin does not pretend otherwise.</string>
+    <string name="protection_battery_row">Battery exemption</string>
+    <string name="protection_battery_desc">Exact completion alarms fire more reliably when Lockin is exempt from battery optimization.</string>
+    <string name="protection_alarm_row">Exact alarm permission</string>
+    <string name="protection_alarm_desc">Lets the completion alarm fire at the precise end time.</string>
+    <string name="protection_time_row">Time integrity</string>
+    <string name="protection_time_desc">Monotonic clock is used while the phone stays on; the persisted wall clock covers reboots. Backward clock changes are detected and reported.</string>
+    <string name="protection_honest_title">What Android still allows</string>
+    <string name="protection_honest_body">On a standard personal phone, no app can guarantee it can never be removed. A determined user can still turn off the accessibility service in Android settings, force-stop Lockin, or uninstall it after removing admin rights. Lockin makes casual escape hard and deliberate, and reports honestly when a protection is lost.</string>
+    <string name="protection_request_admin">Activate device admin</string>
+    <string name="protection_release_admin">Deactivate device admin</string>
+    <string name="protection_admin_active_notice">Device admin is active.</string>
+    <string name="protection_admin_lost">Device admin protection was turned off.</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title">Lock in your focus</string>
+    <string name="onboarding_page1_title">Choose your focus. Commit to it.</string>
+    <string name="onboarding_page1_body">Lockin blocks the apps you pick for the duration you choose. Once a session starts, there is no cancel button — the whole point is that you cannot casually change your mind.</string>
+    <string name="onboarding_page2_title">How it works</string>
+    <string name="onboarding_page2_body">1. Select the apps you want locked.\n2. Pick a duration and confirm your commitment.\n3. When you press START, those apps stay locked until the timer ends — across restarts and reboots.</string>
+    <string name="onboarding_page3_title">Two permissions, clearly explained</string>
+    <string name="onboarding_page3_body">• Accessibility service — detects when a locked app comes to the foreground so Lockin can show the block screen. It never reads screen content.\n• Notifications — shows the session countdown and warns you if protection is turned off.\n\nEverything stays on this device. Lockin has no Internet permission.</string>
+    <string name="onboarding_enable_accessibility">Enable blocker service</string>
+    <string name="onboarding_enable_notifications">Allow notifications</string>
+    <string name="onboarding_done">Get started</string>
+    <string name="onboarding_skip">Skip for now</string>
+    <string name="onboarding_step">Step %1$d of %2$d</string>
+
+    <!-- Common -->
+    <string name="action_back">Back</string>
+    <string name="action_close">Close</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_ok">OK</string>
+    <string name="action_continue">Continue</string>
+    <string name="status_on">On</string>
+    <string name="status_off">Off</string>
+    <string name="empty_ellipsis">…</string>
+
+    <!-- Privacy -->
+    <string name="privacy_title">Privacy</string>
+    <string name="privacy_summary">Lockin works entirely offline. No account, no analytics, no network requests. Data stored locally: your selected apps, session history, blocked-attempt counts and schedules. Deleting the app deletes everything — there is no server copy.</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_history">History</string>
+    <string name="nav_schedules">Schedules</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- More UI -->
+    <string name="home_wordmark">LOCKIN</string>
+    <string name="select_all">Select all visible</string>
+    <string name="select_clear">Clear selection</string>
+    <string name="duration_presets_label">Presets</string>
+    <string name="duration_custom_hours">Hours</string>
+    <string name="duration_custom_minutes">Minutes</string>
+    <string name="confirm_back_to_duration">Back</string>
+    <string name="active_add_apps_title">Add apps</string>
+    <string name="active_protection_on">Protection active</string>
+    <string name="active_protection_off">Blocker service is off</string>
+    <string name="active_view_protection">Protection center</string>
+    <string name="history_total_label">Total focused</string>
+    <string name="schedules_edit_apps_count">%1$d apps</string>
+    <string name="settings_delete_done">All local data deleted.</string>
+    <string name="onboarding_permissions_note">You can change any of this later in Settings.</string>
+    <string name="protection_open_settings">Open Android settings</string>
+    <string name="protection_enable_notifications">Allow notifications</string>
+    <string name="protection_battery_request">Request battery exemption</string>
+    <string name="protection_exact_alarm_request">Allow exact alarms</string>
+    <string name="protection_admin_pending">Queued until the current session ends</string>
+    <string name="time_undefined">—</string>
+    <string name="active_added_count">%1$d apps added to this session.</string>
+</resources>

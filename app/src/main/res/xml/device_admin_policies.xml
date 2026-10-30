@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Deliberately empty policy set: Lockin requests no device capabilities.
+     An active admin still requires deactivation before uninstall on most devices,
+     which is the friction Lockin uses. Nothing destructive is declared. -->
+<device-admin xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-policies />
+</device-admin>

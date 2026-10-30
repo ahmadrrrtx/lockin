@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Android 12+ system splash uses the brand mark on the theme background,
+         then hands over to the main theme. -->
+    <style name="Theme.Lockin.Splash" parent="Theme.Lockin">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:windowSplashScreenBackground">@color/colorBackground</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_splash_mark</item>
+    </style>
+</resources>

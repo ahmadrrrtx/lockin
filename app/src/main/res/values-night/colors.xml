@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Lockin dark theme tokens. -->
+<resources>
+    <color name="colorBackground">#0C0D10</color>
+    <color name="colorSurface">#15161A</color>
+    <color name="colorSurfaceAlt">#1D1F24</color>
+    <color name="colorInk">#F2F2EF</color>
+    <color name="colorInkSecondary">#A7AAB3</color>
+    <color name="colorInkTertiary">#74777F</color>
+    <color name="colorBorder">#26282E</color>
+
+    <color name="colorAccent">#E8A34B</color>
+    <color name="colorOnAccent">#1A1206</color>
+    <color name="colorAccentContainer">#3A2A14</color>
+    <color name="colorOnAccentContainer">#F3C88E</color>
+    <color name="colorAccentSoft">#241A0D</color>
+
+    <color name="statusOk">#55C07E</color>
+    <color name="statusOkSoft">#14271A</color>
+    <color name="statusAlert">#E5756A</color>
+    <color name="statusAlertSoft">#2E1917</color>
+    <color name="statusIdle">#74777F</color>
+    <color name="statusIdleSoft">#1A1C20</color>
+
+    <color name="colorScrim">#99000000</color>
+</resources>

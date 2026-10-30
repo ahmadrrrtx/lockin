@@ -1,0 +1,44 @@
+Lockin
+Copyright (C) 2026 The Lockin authors
+
+This product is licensed under the GNU General Public License version 3 or
+later (GPL-3.0-or-later). See the LICENSE file for the full license text.
+
+--------------------------------------------------------------------------------
+Upstream attribution
+--------------------------------------------------------------------------------
+
+Lockin was developed from an engineering study of the Curbox Android
+application:
+
+    Project:  curbox-android
+    URL:      https://github.com/curbox-app/curbox-android
+    License:  GNU General Public License version 3 or later (GPL-3.0-or-later)
+
+In keeping with the GPL-3.0-or-later obligations that apply to derivative
+works, Lockin:
+
+  * is itself licensed under GPL-3.0-or-later (LICENSE),
+  * credits the upstream project here and in README.md,
+  * distributes its complete corresponding source (dist/Lockin-source.zip,
+    and this repository), and
+  * documents the changes made relative to the upstream study.
+
+Notable modifications relative to the upstream project:
+
+  * complete rebrand to Lockin with application id `com.rrrtx.lockin`,
+  * original visual identity (hourglass mark, wordmark, light/dark design
+    system) created for this project,
+  * rewritten Kotlin codebase and redesigned user interface (onboarding,
+    session dashboard, selection, commitment, blocker, history, schedules,
+    settings, protection center),
+  * strict session state machine with no early-unlock surface,
+  * offline-first packaging: no network permission, no accounts, no analytics,
+  * compatibility floor lowered to Android 6.0 (API 23) with version-aware
+    compatibility handling,
+  * expanded documentation set, tests, and verification scripts.
+
+No source code from the upstream project is copied into this repository;
+the upstream project informed architecture, threat modelling, and the
+engineering checklist only. All code in this repository is original and
+covered by this repository's GPL-3.0-or-later license.

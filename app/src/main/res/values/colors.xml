@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Lockin light theme tokens. Restrained monochrome foundation + single sand accent. -->
+<resources>
+    <color name="colorBackground">#FAFAF8</color>
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorSurfaceAlt">#F1F1EE</color>
+    <color name="colorInk">#14151A</color>
+    <color name="colorInkSecondary">#5C5F68</color>
+    <color name="colorInkTertiary">#8B8E97</color>
+    <color name="colorBorder">#E5E5E0</color>
+
+    <color name="colorAccent">#B7691A</color>
+    <color name="colorOnAccent">#FFFFFF</color>
+    <color name="colorAccentContainer">#F7E8D6</color>
+    <color name="colorOnAccentContainer">#6E3D08</color>
+    <color name="colorAccentSoft">#FBF1E5</color>
+
+    <color name="statusOk">#2F8F53</color>
+    <color name="statusOkSoft">#E3F3E9</color>
+    <color name="statusAlert">#C0483C</color>
+    <color name="statusAlertSoft">#F9E7E4</color>
+    <color name="statusIdle">#8B8E97</color>
+    <color name="statusIdleSoft">#EEEEEC</color>
+
+    <color name="colorScrim">#99000000</color>
+
+    <!-- Launcher identity: constant across themes. -->
+    <color name="ic_launcher_background">#16171C</color>
+</resources>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="26dp"
+        android:paddingTop="28dp"
+        android:paddingBottom="36dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextAppearance.Lockin.SectionLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/active_title" />
+
+            <TextView
+                android:id="@+id/dotProtection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="●" />
+
+            <TextView
+                android:id="@+id/tvProtectionState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                tools:text="Protection active" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:letterSpacing="0.14"
+            android:text="@string/active_remaining"
+            android:textAllCaps="true"
+            android:textColor="@color/colorInkSecondary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvCountdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif"
+            android:text="0:00"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="52sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvEndsAt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorInkSecondary"
+            android:textSize="15sp"
+            tools:text="Ends at 4:30 PM" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvAppsChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="7dp"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                tools:text="7 apps locked" />
+
+            <TextView
+                android:id="@+id/tvScheduleChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_chip"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="7dp"
+                android:textColor="@color/colorInkSecondary"
+                android:textSize="13sp"
+                android:visibility="gone"
+                tools:text="Scheduled" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvCommitment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_accent_note"
+            android:padding="14dp"
+            android:textColor="@color/colorOnAccentContainer"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:visibility="gone"
+            tools:text="I will not open social media before 6 PM."
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvIntegrity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_warning_note"
+            android:padding="12dp"
+            android:text="@string/active_integrity_warning"
+            android:textColor="@color/statusAlert"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddApps"
+            style="@style/Widget.Lockin.Button.Secondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/active_add_apps" />
+
+        <TextView
+            style="@style/TextAppearance.Lockin.BodySmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/active_add_apps_note" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                style="@style/TextAppearance.Lockin.Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/active_no_exit_note"
+                android:textColor="@color/colorInkSecondary" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnProtection"
+                style="@style/Widget.Lockin.Button.Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/active_view_protection" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Lockin" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorOnPrimary">@color/colorOnAccent</item>
+        <item name="colorPrimaryContainer">@color/colorAccentContainer</item>
+        <item name="colorOnPrimaryContainer">@color/colorOnAccentContainer</item>
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorOnSecondary">@color/colorOnAccent</item>
+        <item name="colorSecondaryContainer">@color/colorAccentContainer</item>
+        <item name="colorOnSecondaryContainer">@color/colorOnAccentContainer</item>
+        <item name="colorTertiary">@color/colorAccent</item>
+        <item name="colorOnTertiary">@color/colorOnAccent</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorInk</item>
+        <item name="colorSurfaceVariant">@color/colorSurfaceAlt</item>
+        <item name="colorOnSurfaceVariant">@color/colorInkSecondary</item>
+        <item name="colorOutline">@color/colorBorder</item>
+        <item name="colorOutlineVariant">@color/colorBorder</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="colorOnBackground">@color/colorInk</item>
+        <item name="colorError">@color/statusAlert</item>
+        <item name="colorOnError">@android:color/white</item>
+        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="android:textColorPrimary">@color/colorInk</item>
+        <item name="android:textColorSecondary">@color/colorInkSecondary</item>
+        <item name="android:textColorTertiary">@color/colorInkTertiary</item>
+    </style>
+
+    <!-- Launcher / start-up theme: same visual language, static splash background. -->
+    <style name="Theme.Lockin.Splash" parent="Theme.Lockin">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+</resources>

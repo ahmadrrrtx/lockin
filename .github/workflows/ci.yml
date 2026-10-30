@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-test-lint:
+    name: Build · unit tests · lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      # The runner images ship an Android SDK; make sure API 35 is present.
+      - name: Ensure Android SDK platform 35
+        shell: bash
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-35" >/dev/null || true
+
+      - name: Make wrapper executable
+        run: chmod +x gradlew
+
+      # assembleRelease runs unsigned in CI on purpose: release signing keys are
+      # supplied only through local/secret environment variables (see dist/INSTALL.md
+      # and app/build.gradle.kts) and must never be committed.
+      - name: Build, test, lint
+        run: ./gradlew --no-daemon test lint assembleDebug assembleRelease
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-reports
+          path: |
+            app/build/reports/lint-results-*
+            app/build/reports/tests/
+          if-no-files-found: ignore

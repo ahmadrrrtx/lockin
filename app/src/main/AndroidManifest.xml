@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Installed-app inventory for the selection screen and the blocking engine.
+         Lockin is distributed directly / via FOSS stores; no network permission exists. -->
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.QUICKBOOT_POWERON"
+        tools:ignore="ProtectedPermissions" />
+
+    <application
+        android:name=".LockinApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Lockin">
+
+        <!-- Main single-activity fragment shell. -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.Lockin.Splash"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Full-screen informational block screen shown when a locked app is opened.
+             Contains no action that can alter the active session. Runs in the
+             enforcement process so it appears even if the UI process died. -->
+        <activity
+            android:name=".ui.BlockActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:noHistory="true"
+            android:process=":lockin_core"
+            android:taskAffinity="" />
+
+        <!-- Enforcement core: foreground accessibility service, isolated process. -->
+        <service
+            android:name=".core.BlockerAccessibilityService"
+            android:exported="true"
+            android:foregroundServiceType="specialUse"
+            android:label="@string/accessibility_service_label"
+            android:process=":lockin_core"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/blocker_accessibility_config" />
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Strict focus session blocking for digital wellbeing" />
+        </service>
+
+        <!-- Countdown / session keeper, isolated process. -->
+        <service
+            android:name=".core.SessionService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse"
+            android:process=":lockin_core">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Active focus session countdown and completion" />
+        </service>
+
+        <!-- Persisted watchdog: re-arms alarms and reports degraded protection. -->
+        <service
+            android:name=".core.SessionWatchdogJob"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":lockin_core" />
+
+        <!-- Completion / tick alarms arrive here even when every process died. -->
+        <receiver
+            android:name=".core.SessionAlarmReceiver"
+            android:exported="false"
+            android:process=":lockin_core" />
+
+        <!-- Recurring schedule triggers. -->
+        <receiver
+            android:name=".core.ScheduleAlarmReceiver"
+            android:exported="false"
+            android:process=":lockin_core" />
+
+        <!-- Boot / self-update recovery. -->
+        <receiver
+            android:name=".core.BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Optional device-admin uninstall friction. -->
+        <receiver
+            android:name=".protection.AdminReceiver"
+            android:description="@string/device_admin_description"
+            android:exported="false"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+                <action android:name="android.app.action.PROFILE_PROVISIONING_COMPLETE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin_policies" />
+        </receiver>
+
+    </application>
+
+</manifest>
