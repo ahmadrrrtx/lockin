@@ -53,8 +53,13 @@ and open a PR — real captures are gratefully merged.
 3. Follow the step-by-step sideload guide: **[`dist/INSTALL.md`](dist/INSTALL.md)**
    (includes the Android 13+ *restricted settings* step for accessibility).
 
-Stuck with "App not installed"? Run [`scripts/diagnose_install.sh`](scripts/diagnose_install.sh)
-with your phone connected — it prints the exact PackageManager error and the fix.
+**Seeing "App not installed" or "App blocked to protect your device"?**
+That's Google Play Protect's automatic block on browser-sideloaded apps that
+declare accessibility (Lockin's core) — the APK is fine. Use Route A/B/C in
+[`dist/INSTALL.md`](dist/INSTALL.md) §0 (pause Play Protect → install →
+resume; or adb; or Google's unverified-packages flow). For the exact
+PackageManager error instead, run
+[`scripts/diagnose_install.sh`](scripts/diagnose_install.sh) with a phone connected.
 
 ### In-Depth Feature Analysis
 

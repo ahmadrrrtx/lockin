@@ -116,17 +116,25 @@ back (an opt-in that would be the first thing to do when targeting 36).
 | manifest | targetSdk 35, all `android:exported` explicit, FGS attrs are ignored-when-unknown below their API | no API-28 parse blockers |
 | storage/delivery | 4.73 MB file | corrupt copy or low storage remain device-side possibilities |
 
-**Conclusion:** statically, the 1.0.0 APK was *installable on a stock Android 9
-device with no prior `com.rrrtx.lockin` package*. The failure the phone showed
-therefore has to be **environmental**, in this order of likelihood:
+**CONFIRMED root cause (screenshots, 2026-10-30):** **Google Play Protect**
+blocked the install. The device showed *"App blocked to protect your device —
+This app can request access to sensitive data. This can increase the risk of
+identity theft or financial fraud"* (OK-only button), followed by *"App not
+installed."* — Google's **internet-sideloading rule** from the
+[official Play Protect developer guidance](https://developers.google.com/android/play-protect/warning-dev-guidance):
+APKs obtained from browsers, messaging apps, or file managers that declare
+`RECEIVE_SMS` / `READ_SMS` / notification-listener / **`ACCESSIBILITY`**
+permissions are **automatically blocked at install time**. Lockin declares an
+accessibility service by design, so a browser download on any Play-Protect
+phone reproduces the failure — **on every Android version**, not only 9.
+The static analysis above stands: **no APK defect exists**; the block is GMS
+policy executing as designed, and no APK change can remove the trigger without
+removing the blocker feature itself.
 
-1. **A different-signature package already installed** under the same
-   application id (an earlier debug/other build) → `INSTALL_FAILED_UPDATE_INCOMPATIBLE`
-   — the classic generic *"App not installed."* dialog.
-2. **Corrupt/incomplete file transfer** to the phone → parse failure.
-3. **Low storage** on the device (`INSTALL_FAILED_INSUFFICIENT_STORAGE`).
-4. **OEM/Play-Protect interference** (some OEM security layers surface generic
-   text for blocked sideloads).
+**Install routes not subject to the block:** `adb install`, temporarily
+disabling Play Protect scanning for one install, Google's 2026 "allow
+unverified packages" developer flow, or store session-installs — step-by-step:
+`dist/INSTALL.md` §0. (The APK is unchanged: v1.1.0.)
 
 **None of the code-level causes were reproducible** — which is exactly why
 v1.1.0 does not "guess-fix" random SDK values; instead it hardened everything

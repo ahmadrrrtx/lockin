@@ -3,6 +3,61 @@
 **What you need:** an Android phone (Android 6.0 / API 23 or newer) and the file
 `Lockin-Android.apk` from this folder.
 
+## 0. "App not installed."? → Google Play Protect blocked it (read first)
+
+If you saw **"App blocked to protect your device — This app can request access
+to sensitive data. This can increase the risk of identity theft or financial
+fraud"** (OK button only), or the install simply ended with **"App not
+installed."**, this is **Google Play Protect's automatic block — not a broken
+APK**.
+
+**Why (Google's own policy):** apps downloaded from *internet-sideloading
+sources* — web browsers, messaging apps, file managers — that declare
+**ACCESSIBILITY**, SMS, or notification-listener permissions are blocked at
+install time ([official Google guidance](https://developers.google.com/android/play-protect/warning-dev-guidance)).
+Lockin's core is an accessibility service (it only ever sees *which app* is in
+front of you — never your screen content), so **downloading via a browser
+triggers this on most current phones**. The OK-only dialog is intentional:
+there is no "Install anyway" button on it.
+
+Pick ONE route:
+
+**Route A — pause Play Protect for one install (fastest, no computer)** ⭐
+1. Open **Google Play Store** → tap your **profile icon** (top-right).
+2. Tap **Play Protect** → **⚙️ gear** → turn **OFF** "Scan apps with Play Protect".
+3. Install the APK normally (Downloads/Files → `Lockin-Android.apk`).
+4. Turn scanning **back on** right away.
+
+**Route B — Google's "allow unverified packages" flow (no computer, one-time 24-hour wait)**
+Devices that offer it (newer Android): Settings → About phone → tap **Build
+number** 7× → Settings → System → **Developer options** → **Allow unverified
+packages / Apps from Unverified Developers** → confirm → **reboot** → wait
+**24 hours** → return to the toggle → allow (7 days or indefinitely). The
+installer then offers **Install anyway**.
+
+**Route C — computer + adb (unrestricted; Google's developer route)**
+Enable **USB debugging**, connect the phone, run:
+
+```bash
+adb install Lockin-Android.apk
+```
+
+adb installs are not subject to this Play Protect block.
+
+**Route D — store installs**
+APKs installed through a store client (session-based installs — e.g. F-Droid,
+once published) don't use the browser-sideload path.
+
+**After any successful install — Android 13+ only:** Settings → Apps → Lockin
+→ **⋮ → Allow restricted settings**, *then* enable the accessibility service
+in onboarding (otherwise that toggle looks greyed out).
+
+**Source & integrity:** download only from the
+[official releases](https://github.com/ahmadrrrtx/lockin/releases/latest) or
+the project website. Copies re-shared through Google Drive or messaging
+(`Lockin-Android (1).apk`) can be stale or altered — verify `SHA-256` against
+`SHA256SUMS.txt` (v1.1.0 = `8e689483…bde116`).
+
 ## 1. Put the APK on your phone
 
 Any way you like: USB cable, messaging app to yourself, email-to-yourself,
@@ -61,6 +116,7 @@ the app normally. Uninstalling deletes all local data — there is no cloud copy
 
 | Problem | Fix |
 |---|---|
+| **“App not installed.” / “App blocked to protect your device”** | Play Protect auto-block — use Route A/B/C in **§0** above |
 | Locked apps open anyway | Settings → Apps → Lockin → Accessibility → confirm *Lockin Focus Blocker* is On; check Protection center |
 | No countdown notification | Allow notifications for Lockin (long-press the app icon → App info → Notifications) |
 | Session ended while phone was off | Normal — Lockin verifies the real clock on boot and completes correctly |

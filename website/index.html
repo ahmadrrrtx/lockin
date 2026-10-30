@@ -437,7 +437,7 @@
               <a class="btn btn-primary" href="https://github.com/ahmadrrrtx/lockin/releases/latest/download/Lockin-Android.apk" target="_blank" rel="noopener">Download APK · 4.7 MB</a>
               <a class="btn btn-ghost" href="https://github.com/ahmadrrrtx/lockin/blob/main/dist/INSTALL.md" target="_blank" rel="noopener">Install guide</a>
             </div>
-            <p class="fine">Requires Android 6.0 (API 23) or newer · SHA-256 published with every release · signed v1+v2</p>
+            <p class="fine">Requires Android 6.0 (API 23) or newer · SHA-256 published with every release · signed v1+v2 · <a href="https://github.com/ahmadrrrtx/lockin/blob/main/dist/INSTALL.md" target="_blank" rel="noopener">Install blocked? Get help</a></p>
           </div>
           <div class="dl-side" aria-hidden="true">
             <div class="dl-hg">
@@ -469,6 +469,16 @@
         </div>
 
         <div class="faq reveal">
+          <details>
+            <summary>My phone says “App not installed” — Play Protect blocked it?</summary>
+            <p>That’s Google Play Protect auto-blocking browser-sideloaded apps
+               that use accessibility — Lockin’s core. The APK itself is fine.
+               Quickest fix: open <b>Play Store → profile icon → Play Protect →
+               ⚙️</b>, turn <b>off</b> “Scan apps with Play Protect”, install
+               Lockin, turn it back on. Other routes (adb, Google’s
+               developer-options flow) are in <code>dist/INSTALL.md</code> §0
+               in the repository.</p>
+          </details>
           <details>
             <summary>Can I end a session early?</summary>
             <p>No — and that is the product. There is no cancel button, no
