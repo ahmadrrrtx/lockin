@@ -1,18 +1,24 @@
 # Lockin
 
+[![CI](https://github.com/ahmadrrrtx/lockin/actions/workflows/ci.yml/badge.svg)](https://github.com/ahmadrrrtx/lockin/actions/workflows/ci.yml)
+[![License: GPL-3.0-or-later](https://img.shields.io/badge/license-GPL--3.0--or--later-blue.svg)](LICENSE)
+[![minSdk 23 (Android 6.0)](https://img.shields.io/badge/minSdk-23%20%C2%B7%20Android%206.0+-3DDC84.svg)](docs/ANDROID_COMPATIBILITY.md)
+[![version 1.1.0](https://img.shields.io/badge/version-1.1.0-orange.svg)](dist/MANIFEST.md)
+[![offline · no INTERNET permission](https://img.shields.io/badge/network-none-brightgreen.svg)](PRIVACY_POLICY.md)
+
 **Strict focus commitment for Android.** Pick the apps you want locked away,
 pick a duration, commit — and while the session is running there is *no* cancel,
 no pause, no shorten, no early unlock, from any surface: not the UI, not a
 notification, not a broadcast, not a deep link. When the timer completes, the
 lock releases by itself.
 
-- **Package:** `com.rrrtx.lockin` · **version** 1.1.0 (versionCode 2)
-- **Android:** 6.0 (API 23) → 16 (targetSdk 35) — see
-  [`docs/ANDROID_COMPATIBILITY.md`](docs/ANDROID_COMPATIBILITY.md)
-- **Privacy:** offline-first. **No INTERNET permission**, no accounts, no
-  analytics, no backend. Everything lives in local SQLite.
-- **License:** GPL-3.0-or-later (see [`LICENSE`](LICENSE) and
-  [`NOTICE`](NOTICE) for upstream attribution).
+| | |
+|---|---|
+| **Package** | `com.rrrtx.lockin` · v1.1.0 (versionCode 2) |
+| **Android support** | 6.0 (API 23) → 16 · see [`docs/ANDROID_COMPATIBILITY.md`](docs/ANDROID_COMPATIBILITY.md) |
+| **Privacy** | offline-first: **no INTERNET permission**, no accounts, no analytics, no backend — local SQLite only |
+| **Signing** | release APK signed with v1 + v2 schemes (one universal APK, no splits) |
+| **License** | GPL-3.0-or-later · [`LICENSE`](LICENSE) · upstream attribution in [`NOTICE`](NOTICE) |
 
 ## Features
 
